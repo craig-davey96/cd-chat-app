@@ -61,12 +61,8 @@ export default function ChatWindow({fullHeight , currentUID}) {
             <ChatWindowHolder className={fullHeight === true ? 'full-height' : ''}>
                 {fullHeight === true ? (<h1>CHOOSE A USER<br/>TO CHAT TO</h1>) : (
                     messages.map((msg , index) => (
-                        <ChatItem key={index} className={localStorage.getItem('user') === msg._id.sender ? 'send' : 'recieved'}>
-                            {
-                                msg.obj.map(m => (
-                                    <span>{m.message}</span>
-                                ))
-                            }
+                        <ChatItem key={index} className={localStorage.getItem('user') === msg.sender ? 'send' : 'recieved'}>
+                            <span>{msg.message}</span>
                         </ChatItem>
                     ))
                 )}
